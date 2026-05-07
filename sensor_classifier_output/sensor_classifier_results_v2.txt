@@ -1,0 +1,178 @@
+DairyFusion AI — Sensor Defect Classifier v2 Results
+============================================================
+
+  Defect Type
+    Train   : Accuracy=90.07%  F1=0.9037
+    Val     : Accuracy=85.98%  F1=0.8716
+    Test    : Accuracy=83.33%  F1=0.8446
+    Gap     : 0.0591 (train−test F1)
+  Defect Severity
+    Train   : Accuracy=88.44%  F1=0.8833
+    Val     : Accuracy=85.51%  F1=0.8669
+    Test    : Accuracy=84.52%  F1=0.8427
+    Gap     : 0.0406 (train−test F1)
+
+
+Feature Importance — Defect Type:
+    yoghurt_temp_c                 0.1215  ██████
+    factory_humidity_pct           0.0734  ███
+    temp_below_min                 0.0159  
+    temp_in_range                  0.0061  
+    temp_above_max                 0.0019  
+    humidity_gap                   0.0014  
+    slot_code                      0.0009  
+    raining                        -0.0023  
+    weather_temp_c                 -0.0037  
+    precipitation_mm               -0.0061  
+    weather_humidity_pct           -0.0196  
+
+============================================================
+  Defect Type — TRAIN
+============================================================
+  Accuracy : 90.07%
+  F1 Score : 0.9037 (weighted)
+
+                precision    recall  f1-score   support
+
+          foam       0.82      0.88      0.85        41
+          none       0.96      0.91      0.93       468
+       residue       0.69      0.82      0.75        11
+water_droplets       0.72      0.88      0.79        81
+   water_layer       0.72      1.00      0.84        13
+
+      accuracy                           0.90       614
+     macro avg       0.78      0.90      0.83       614
+  weighted avg       0.91      0.90      0.90       614
+
+
+============================================================
+  Defect Type — VAL
+============================================================
+  Accuracy : 85.98%
+  F1 Score : 0.8716 (weighted)
+
+                precision    recall  f1-score   support
+
+          foam       0.85      0.85      0.85        20
+          none       0.99      0.83      0.90       160
+       residue       0.52      1.00      0.69        24
+water_droplets       1.00      1.00      1.00         4
+   water_layer       0.67      1.00      0.80         6
+
+      accuracy                           0.86       214
+     macro avg       0.80      0.94      0.85       214
+  weighted avg       0.91      0.86      0.87       214
+
+
+============================================================
+  Defect Type — TEST
+============================================================
+  Accuracy : 83.33%
+  F1 Score : 0.8446 (weighted)
+
+                precision    recall  f1-score   support
+
+          foam       0.95      0.74      0.83        27
+          none       0.94      0.84      0.89       116
+       residue       0.53      0.95      0.68        19
+water_droplets       0.38      1.00      0.55         3
+   water_layer       1.00      0.33      0.50         3
+
+      accuracy                           0.83       168
+     macro avg       0.76      0.77      0.69       168
+  weighted avg       0.89      0.83      0.84       168
+
+
+  Generalisation check:
+    Train F1=0.9037  |  Val F1=0.8716  |  Test F1=0.8446
+    Gap (train−test) = 0.0591
+    ✓ Model generalises well (gap ≤ 10%)
+
+Feature Importance — Defect Severity:
+    temp_in_range                  0.0668  ███
+    factory_humidity_pct           0.0626  ███
+    weather_humidity_pct           0.0570  ██
+    weather_temp_c                 0.0481  ██
+    yoghurt_temp_c                 0.0449  ██
+    temp_above_max                 0.0182  
+    temp_below_min                 0.0065  
+    raining                        0.0037  
+    humidity_gap                   0.0028  
+    precipitation_mm               -0.0014  
+    slot_code                      -0.0019  
+
+============================================================
+  Defect Severity — TRAIN
+============================================================
+  Accuracy : 88.44%
+  F1 Score : 0.8833 (weighted)
+
+              precision    recall  f1-score   support
+
+        high       1.00      1.00      1.00        21
+         low       0.58      0.56      0.57        81
+      medium       0.86      0.95      0.90        44
+        none       0.93      0.93      0.93       468
+
+    accuracy                           0.88       614
+   macro avg       0.84      0.86      0.85       614
+weighted avg       0.88      0.88      0.88       614
+
+
+============================================================
+  Defect Severity — VAL
+============================================================
+  Accuracy : 85.51%
+  F1 Score : 0.8669 (weighted)
+
+              precision    recall  f1-score   support
+
+        high       1.00      0.86      0.92         7
+         low       0.85      0.51      0.64        43
+      medium       0.16      0.75      0.26         4
+        none       0.93      0.95      0.94       160
+
+    accuracy                           0.86       214
+   macro avg       0.73      0.77      0.69       214
+weighted avg       0.90      0.86      0.87       214
+
+
+============================================================
+  Defect Severity — TEST
+============================================================
+  Accuracy : 84.52%
+  F1 Score : 0.8427 (weighted)
+
+              precision    recall  f1-score   support
+
+        high       1.00      1.00      1.00        11
+         low       0.66      0.58      0.61        33
+      medium       0.56      0.62      0.59         8
+        none       0.90      0.92      0.91       116
+
+    accuracy                           0.85       168
+   macro avg       0.78      0.78      0.78       168
+weighted avg       0.84      0.85      0.84       168
+
+
+  Generalisation check:
+    Train F1=0.8833  |  Val F1=0.8669  |  Test F1=0.8427
+    Gap (train−test) = 0.0406
+    ✓ Model generalises well (gap ≤ 10%)
+
+LIVE INFERENCE DEMO
+
+High humidity + low yoghurt temp → water_droplets
+  Defect: uncertain | Severity: uncertain
+
+High yoghurt temp → foam
+  Defect: foam | Severity: high
+
+Normal conditions → no defect
+  Defect: none | Severity: none
+
+Very low yoghurt temp → water_layer
+  Defect: uncertain | Severity: uncertain
+
+Hot + dry → residue
+  Defect: residue | Severity: low
