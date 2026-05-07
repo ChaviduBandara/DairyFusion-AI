@@ -1,0 +1,23 @@
+names:
+- cup
+- dustparticle
+- eyelash
+- foam
+- hair
+- insect
+- overfill
+- plasticparticle
+- residue
+- underfill
+- waterbubble
+- waterlayer
+nc: 12
+roboflow:
+  license: CC BY 4.0
+  project: dairy-fusionai
+  url: https://universe.roboflow.com/dairyfusion-ai/dairy-fusionai/dataset/3
+  version: 3
+  workspace: dairyfusion-ai
+test: ../test/images
+train: ../train/images
+val: ../valid/images

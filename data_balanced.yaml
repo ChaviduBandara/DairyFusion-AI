@@ -1,0 +1,17 @@
+names:
+- cup
+- dustparticle
+- eyelash
+- foam
+- hair
+- insect
+- overfill
+- plasticparticle
+- residue
+- underfill
+- waterbubble
+- waterlayer
+nc: 12
+path: C:\Users\User\Dairy-FusionAI-3 - model\Dairy\Dairy
+train: train_balanced/images
+val: val_balanced/images
