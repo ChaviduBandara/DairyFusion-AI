@@ -50,7 +50,7 @@ No Defect: cup
 ## Dataset
 First publicly available yoghurt cup defect dataset
 462 images | 12 classes | Real factory data
-Published on Kaggle: https://www.kaggle.com/datasets/
+Published on Kaggle: https://www.kaggle.com/datasets/chavidubandara/dairyfusion-ai-yoghurt-cup-defect-dataset
 
 ---
 
